@@ -1,14 +1,20 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ * SPDX-License-Identifier: MIT
+ */
+
 #include "skreecustom.dtsi"
 
 &kscan0 {
-    row-gpios           // Col1-7 1.03 1.14 1.05 1.13 1.07 1.12 0.16 
-        = <&nice_nano_v2 P1_06 GPIO_ACTIVE_HIGH> 
-        , <&nice_nano_v2 P1_04 GPIO_ACTIVE_HIGH>
-        , <&nice_nano_v2 P0_11 GPIO_ACTIVE_HIGH>
-        , <&nice_nano_v2 P1_00 GPIO_ACTIVE_HIGH>
-        , <&nice_nano_v2 P0_24 GPIO_ACTIVE_HIGH>
-        , <&nice_nano_v2 P0_22 GPIO_ACTIVE_HIGH>
-//      , <&nice_nano_v2 P0_20 GPIO_ACTIVE_HIGH>
+    // This overlay defines the matrix columns for the RIGHT half.
+    // The syntax is: <&pro_micro pin_number (flags)>
+    col-gpios
+        = <&pro_micro 6 (GPIO_ACTIVE_HIGH)>  // Your P1_06
+          <&pro_micro 5 (GPIO_ACTIVE_HIGH)>  // Your P1_04
+          <&pro_micro 2 (GPIO_ACTIVE_HIGH)>  // Your P0_11
+          <&pro_micro 3 (GPIO_ACTIVE_HIGH)>  // Your P1_00
+          <&pro_micro 4 (GPIO_ACTIVE_HIGH)>  // Your P0_24
+          <&pro_micro 18 (GPIO_ACTIVE_HIGH)> // Your P0_22
         ;
 };
 
