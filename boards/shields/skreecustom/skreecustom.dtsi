@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ * SPDX-License-Identifier: MIT
+ */
+
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "skreecustom-layouts.dtsi"
 
@@ -5,11 +10,12 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
+        zmk,split = &split;
     };
 
     default_transform: keymap_transform {
         compatible = "zmk,matrix-transform";
-        columns = <10>;
+        columns = <12>;
         rows = <14>;
 
         map = <
@@ -27,16 +33,16 @@
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
-
-        // Ensure you use standard spaces between the controller, pin, and flags.
-        // The format is: <&controller pin_number (flags)>
-        row-gpios
-            = <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-              <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-              <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-              <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-              <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-              <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
     };
+    
+    split: split {
+        compatible = "zmk,split-peripheral-i2c";
+        i2c = <&i2c0>;
+    };
+};
+
+&i2c0 {
+	status = "okay";
+	scl-pin = <&pro_micro 1 (GPIO_ACTIVE_HIGH)>;
+	sda-pin = <&pro_micro 0 (GPIO_ACTIVE_HIGH)>;
 };
