@@ -28,7 +28,6 @@
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
 
-        diode-direction = "col2row";
         row-gpios
              = <&nice_nano_v2 P0_09 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> //r1-7 0.03 0.28 1.01 0.09 0.10 1.11 1.15thumbs
              , <&nice_nano_v2 P0_10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> 
