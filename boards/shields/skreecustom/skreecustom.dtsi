@@ -24,19 +24,19 @@
         >;
     };
 
-       kscan0: kscan {
+      kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
 
         row-gpios
             // The syntax is: <&controller pin_number (flags)>
-            = <&pro_micro 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Was P0_09
-              <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Was P0_10
-              <&pro_micro 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Was P1_11
-              <&pro_micro 3  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Was P1_13
-              <&pro_micro 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Was P1_15
-              <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Was P0_02
-            ;
+            = <&pro_micro 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+              <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+              <&pro_micro 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+              <&pro_micro 3  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+              <&pro_micro 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+              <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ; // Make sure this semicolon is here!
     };
 };
 S
