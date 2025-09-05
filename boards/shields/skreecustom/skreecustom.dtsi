@@ -34,7 +34,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
     };
-    
+
     split: split {
         compatible = "zmk,split-peripheral-i2c";
         i2c = <&i2c0>;
@@ -42,7 +42,7 @@
 };
 
 &i2c0 {
-	status = "okay";
-	scl-pin = <&pro_micro 1 (GPIO_ACTIVE_HIGH)>;
-	sda-pin = <&pro_micro 0 (GPIO_ACTIVE_HIGH)>;
+    status = "okay";
+    scl-pin = <&pro_micro 1 (GPIO_ACTIVE_HIGH)>;
+    sda-pin = <&pro_micro 0 (GPIO_ACTIVE_HIGH)>;
 };
